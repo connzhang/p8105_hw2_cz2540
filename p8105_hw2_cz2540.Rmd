@@ -1,0 +1,17 @@
+---
+title: "Homework 2"
+author: Connie Zhang (cz2540)
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
