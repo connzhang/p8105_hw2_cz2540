@@ -7,16 +7,15 @@ output: github_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
-install.packages("readxl")
-library("readxl")
-getwd ()
+library(readxl)
 ```
 
-#Problem 1
+Problem 1
 ```{r}
-trash_wheel = read_excel("./data/Trash-Wheel.xlsx")
+trash_wheel = 
+  read_excel("./Data/Trash-Wheel.xlsx", sheet = 1) 
+  trash_wheel
 ```
 
-```{r}
 
 ```
