@@ -13,9 +13,16 @@ library(readxl)
 Problem 1
 ```{r}
 trash_wheel = 
-  read_excel("./Data/Trash-Wheel.xlsx", sheet = 1) 
+  read_excel("./Data/Trash-Wheel.xlsx", sheet = 1) %>%
+  janitor::clean_names() %>%
+  drop_na (dumpster) %>%
+  select(-15, -16, -17) %>%
+  mutate(sports_balls = as.integer(sports_balls))
   trash_wheel
 ```
 
-
+```{r}
+precip_2017 =
+  read_excel("./Data/Trash-Wheel.xlsx", sheet = 6, range = "A2:B14") 
+precip_2017
 ```
