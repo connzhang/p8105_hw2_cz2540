@@ -10,7 +10,7 @@ library(tidyverse)
 library(readxl)
 ```
 
-Problem 1
+## Problem 1
 ```{r}
 trash_wheel = 
   read_excel("./Data/Trash-Wheel.xlsx", sheet = 1) %>%
@@ -20,9 +20,29 @@ trash_wheel =
   mutate(sports_balls = as.integer(sports_balls))
   trash_wheel
 ```
-
+* Read and clean precipitation data for 2017 
+* Omitting rows without data and adding variable 2017
 ```{r}
 precip_2017 =
-  read_excel("./Data/Trash-Wheel.xlsx", sheet = 6, range = "A2:B14") 
+  read_excel("./Data/Trash-Wheel.xlsx", sheet = 6, range = "A2:B14") %>%
+  janitor::clean_names() %>%
+  mutate (year = 2017)
 precip_2017
 ```
+* Read and clean precipitation data for 2018
+* Omitting rows without data and adding variable 2018 
+```{r}
+precip_2018 =
+  read_excel("./Data/Trash-Wheel.xlsx", sheet = 5, range = "A2:B14") %>%
+  janitor::clean_names() %>%
+  mutate (year = 2018)
+precip_2018
+```
+* Combining precipation datasets, converting month to character variable  
+```{r}
+combine_precip = 
+  full_join(precip_2017,precip_2018) %>%
+  mutate(month= month.abb[month])
+combine_precip
+```
+* Description of data: 
